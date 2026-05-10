@@ -1,0 +1,33 @@
+package org.example.coursemanagementjdbc.mapper;
+
+import org.example.coursemanagementjdbc.dao.entity.TeacherEntity;
+import org.example.coursemanagementjdbc.model.request.TeacherRequest;
+import org.example.coursemanagementjdbc.model.response.TeacherResponse;
+import org.springframework.jdbc.core.RowMapper;
+
+public class TeacherMapper {
+    public static final RowMapper<TeacherEntity> MAPPER = ((rs, rowNum) ->
+            TeacherEntity.builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name"))
+                    .surname(rs.getString("surname"))
+                    .salary(rs.getBigDecimal("salary"))
+                    .build());
+
+    public static TeacherEntity mapToEntity(TeacherRequest teacherRequest) {
+        return TeacherEntity.builder()
+                .name(teacherRequest.getName())
+                .surname(teacherRequest.getSurname())
+                .salary(teacherRequest.getSalary())
+                .build();
+    }
+
+    public static TeacherResponse mapToDto(TeacherEntity teacherEntity) {
+        return TeacherResponse.builder()
+                .id(teacherEntity.getId())
+                .name(teacherEntity.getName())
+                .surname(teacherEntity.getSurname())
+                .salary(teacherEntity.getSalary())
+                .build();
+    }
+}
