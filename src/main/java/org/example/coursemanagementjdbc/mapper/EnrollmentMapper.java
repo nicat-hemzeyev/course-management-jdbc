@@ -10,8 +10,9 @@ public class EnrollmentMapper {
             EnrollmentEntity.builder()
                     .studentId(rs.getInt("student_id"))
                     .courseId(rs.getInt("course_id"))
-                    .enrolmentDate(rs.getDate("enrolment_date"))
+                    .enrollmentDate(rs.getTimestamp("enrollment_date").toLocalDateTime())
                     .build()
+
     );
 
     public static EnrollmentEntity mapToEntity(EnrollmentRequest enrollmentRequest) {
@@ -25,7 +26,7 @@ public class EnrollmentMapper {
         return EnrollmentResponse.builder()
                 .studentId(enrollmentEntity.getStudentId())
                 .courseId(enrollmentEntity.getCourseId())
-                .enrolmentDate(enrollmentEntity.getEnrolmentDate())
+                .enrollmentDate(enrollmentEntity.getEnrollmentDate())
                 .build();
     }
 }

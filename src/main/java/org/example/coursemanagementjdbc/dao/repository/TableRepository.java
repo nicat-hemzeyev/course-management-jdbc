@@ -56,10 +56,9 @@ public class TableRepository {
     public void createEnroolmentsTable() {
         var sql = ("""
                 CREATE TABLE IF NOT EXISTS enrolments(
-                id SERIAL PRIMARY KEY NOT NULL,
                 student_id INT REFERENCES students(id),
                 course_id INT REFERENCES courses(id),
-                enrolment_date DATE
+                enrollment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
                 """);
         jdbcTemplate.execute(sql);
