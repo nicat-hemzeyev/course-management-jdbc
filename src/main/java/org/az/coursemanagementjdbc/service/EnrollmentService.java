@@ -7,6 +7,8 @@ import org.az.coursemanagementjdbc.mapper.EnrollmentMapper;
 import org.az.coursemanagementjdbc.model.request.EnrollmentRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class EnrollmentService {
@@ -14,6 +16,7 @@ public class EnrollmentService {
 
     public void enroll(EnrollmentRequest enrollmentRequest){
         EnrollmentEntity enrollmentEntity = EnrollmentMapper.mapToEntity(enrollmentRequest);
+        enrollmentEntity.setEnrollmentDate(LocalDateTime.now());
         enrollmentRepository.enrol(enrollmentEntity);
     }
 

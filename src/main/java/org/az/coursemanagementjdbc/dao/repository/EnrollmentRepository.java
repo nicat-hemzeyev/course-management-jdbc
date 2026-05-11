@@ -11,13 +11,12 @@ public class EnrollmentRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public void enrol(EnrollmentEntity enrollmentEntity) {
-        String sql = "INSERT INTO enrolments(student_id ,course_id, enrollment_date) VALUES(?,?,?)";
+        String sql = "INSERT INTO enrolments(student_id ,course_id) VALUES(?,?)";
 
         jdbcTemplate.update(con -> {
             var ps = con.prepareStatement(sql);
             ps.setInt(1, enrollmentEntity.getStudentId());
             ps.setInt(2, enrollmentEntity.getCourseId());
-            ps.setTimestamp(3,java.sql.Timestamp.valueOf(enrollmentEntity.getEnrollmentDate()));
             return ps;
         });
     }
