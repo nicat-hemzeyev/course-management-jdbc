@@ -45,19 +45,24 @@ src/main/java/org/example/coursemanagementjdbc
 
 ## ⚙️ Configuration
 
-Environment variables are defined in .env:
+Create a `.env` file:
 
+```env
 DB_URL=jdbc:postgresql://localhost:5435/course_db
 DB_USERNAME=postgres
 DB_PASSWORD=your_password
+```
 
-application.properties reads from .env:
+`application.properties`:
 
+```properties
 server.port=5643
 spring.application.name=course-management-jdbc
+
 spring.datasource.url=${DB_URL}
 spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
+```
 
 ---
 
