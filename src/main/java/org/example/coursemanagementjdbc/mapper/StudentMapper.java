@@ -15,7 +15,6 @@ public class StudentMapper {
                     .build());
 
     public static StudentEntity mapToEntity(StudentRequest studentRequest) {
-//mapToEntity → Request obyektini götürüb Entity-yə çevirir.
         return StudentEntity.builder()
                 .name(studentRequest.getName())
                 .surname(studentRequest.getSurname())
@@ -23,11 +22,6 @@ public class StudentMapper {
                 .build();
     }
 
-    //Entity → DB-dən gələn obyekt (məsələn, StudentEntity).
-//Amma biz API cavabında birbaşa Entity göndərmirik, çünki:
-//Entity-də lazımsız və ya gizli sahələr ola bilər (məsələn, password, createdAt).
-//DTO (Data Transfer Object) → yalnız lazım olan məlumatları client-ə qaytarır.
-//mapToDto → Entity obyektini Response DTO-ya (StudentResponse) çevirir.
     public static StudentResponse mapToDto(StudentEntity studentEntity) {
         return StudentResponse.builder()
                 .id(studentEntity.getId())
