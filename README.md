@@ -1,4 +1,4 @@
-# Course Management JDBC
+# Course Management System JDBC
 
 A modular Java backend project built with Spring Boot and PostgreSQL (JDBC) to manage courses, students, teachers, and enrollments. The project follows a layered architecture with clear separation of concerns: controllers, services, repositories, entities, mappers, and models.
 
