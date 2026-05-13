@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 public class TeacherMapper {
     public static final RowMapper<TeacherEntity> MAPPER = ((rs, rowNum) ->
             TeacherEntity.builder()
-                    .id(rs.getInt("id"))
+                    .id(rs.getLong("id"))
                     .name(rs.getString("name"))
                     .surname(rs.getString("surname"))
                     .salary(rs.getBigDecimal("salary"))

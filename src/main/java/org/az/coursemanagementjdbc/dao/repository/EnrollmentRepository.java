@@ -15,20 +15,20 @@ public class EnrollmentRepository {
 
         jdbcTemplate.update(con -> {
             var ps = con.prepareStatement(sql);
-            ps.setInt(1, enrollmentEntity.getStudentId());
-            ps.setInt(2, enrollmentEntity.getCourseId());
+            ps.setLong(1, enrollmentEntity.getStudentId());
+            ps.setLong(2, enrollmentEntity.getCourseId());
             return ps;
         });
     }
 
-    public void unenroll(int studentId, int courseId) {
+    public void unenroll(Long studentId, Long courseId) {
         String sql = "DELETE FROM enrolments WHERE student_id=? AND course_id=?";
         jdbcTemplate.update(sql, studentId, courseId);
     }
 
-    public boolean isEnrolled(int studentId, int courseId) {
+    public boolean isEnrolled(Long studentId, Long courseId) {
         String sql = "SELECT COUNT (*) FROM enrolments WHERE student_id=? AND course_id=?";
-        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, studentId, courseId);
+        Long count = jdbcTemplate.queryForObject(sql, Long.class, studentId, courseId);
         return count != null && count > 0;
     }
 }

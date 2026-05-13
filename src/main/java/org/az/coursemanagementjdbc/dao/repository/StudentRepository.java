@@ -26,7 +26,7 @@ public class StudentRepository {
         });
     }
 
-    public Optional<StudentEntity> findById(int id) {
+    public Optional<StudentEntity> findById(Long id) {
         String sql = ("SELECT*FROM students WHERE id=?");
         try {
             StudentEntity student = jdbcTemplate.queryForObject(sql, MAPPER, id);
@@ -54,7 +54,7 @@ public class StudentRepository {
 
     }
 
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         String sql = "DELETE FROM students WHERE id=?";
         jdbcTemplate.update(sql, id);
     }

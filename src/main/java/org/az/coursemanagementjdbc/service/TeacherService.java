@@ -27,19 +27,19 @@ public class TeacherService {
                 .toList();
     }
 
-    public TeacherResponse getTeacherById(int id) {
+    public TeacherResponse getTeacherById(Long id) {
         return teacherRepository.findById(id)
                 .map(TeacherMapper::mapToDto)
                 .orElseThrow(() -> new RuntimeException("Teacher not found"));
     }
 
-    public void teacherUpdate(int id, TeacherRequest teacherRequest) {
+    public void teacherUpdate(Long id, TeacherRequest teacherRequest) {
         TeacherEntity teacherEntity = TeacherMapper.mapToEntity(teacherRequest);
         teacherEntity.setId(id);
         teacherRepository.update(teacherEntity);
     }
 
-    public void deleteTeacherById(int id) {
+    public void deleteTeacherById(Long id) {
         teacherRepository.deleteById(id);
     }
 }

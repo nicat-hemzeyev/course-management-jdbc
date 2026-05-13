@@ -20,12 +20,12 @@ public class EnrollmentService {
         enrollmentRepository.enrol(enrollmentEntity);
     }
 
-    public void unenroll(int studentId, int courseId) {
+    public void unenroll(Long studentId, Long courseId) {
         enrollmentRepository.unenroll(studentId, courseId);
 
     }
 
-    public boolean isEnrolled(int studentId, int CourseId) {
+    public boolean isEnrolled(Long studentId, Long CourseId) {
         return enrollmentRepository.isEnrolled(studentId, CourseId);
     }
 }

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class StudentResponse {
-    private int id;
+    private Long id;
     private String name;
     private String surname;
     private BigDecimal grade;

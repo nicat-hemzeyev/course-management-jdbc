@@ -20,12 +20,12 @@ public class CourseRepository {
         jdbcTemplate.update(con -> {
             var ps = con.prepareStatement(sql);
             ps.setString(1, courseEntity.getName());
-            ps.setInt(2,courseEntity.getTeacherId());
+            ps.setLong(2,courseEntity.getTeacherId());
             return ps;
         });
     }
 
-    public Optional<CourseEntity> findById(int id) {
+    public Optional<CourseEntity> findById(Long id) {
         String sql = "SELECT*FROM courses WHERE id=?";
         try {
             CourseEntity course = jdbcTemplate.queryForObject(sql, MAPPER, id);
@@ -49,7 +49,7 @@ public class CourseRepository {
         );
     }
 
-    public void deleteById(int id){
+    public void deleteById(Long id){
         String sql ="DELETE FROM courses WHERE id=?";
         jdbcTemplate.update(sql,id);
     }

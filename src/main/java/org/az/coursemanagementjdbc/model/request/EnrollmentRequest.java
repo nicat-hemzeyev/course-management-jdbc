@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EnrollmentRequest {
-    private int studentId;
-    private int courseId;
+    private Long studentId;
+    private Long courseId;
 }

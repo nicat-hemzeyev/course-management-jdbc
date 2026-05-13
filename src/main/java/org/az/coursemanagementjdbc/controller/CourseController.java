@@ -27,17 +27,17 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public CourseResponse getCourseById(@PathVariable int id) {
+    public CourseResponse getCourseById(@PathVariable Long id) {
         return courseService.getCourseById(id);
     }
 
     @PutMapping("/{id}")
-    public void courseUpdate(@PathVariable int id, @RequestBody CourseRequest courseRequest) {
+    public void courseUpdate(@PathVariable Long id, @RequestBody CourseRequest courseRequest) {
         courseService.courseUpdate(id, courseRequest);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCourseById(@PathVariable int id) {
+    public void deleteCourseById(@PathVariable Long id) {
         courseService.deleteCourseById(id);
     }
 }

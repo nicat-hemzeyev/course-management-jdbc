@@ -19,12 +19,12 @@ public class EnrollmentController {
     }
 
     @DeleteMapping("/{studentId}/{courseId}")
-    public void unenroll(@PathVariable int studentId, @PathVariable int courseId) {
+    public void unenroll(@PathVariable Long studentId, @PathVariable Long courseId) {
         enrollmentService.unenroll(studentId, courseId);
     }
 
     @GetMapping("/{studentId}/{courseId}")
-    public boolean isEnrollment(@PathVariable int studentId, @PathVariable int courseId) {
+    public boolean isEnrollment(@PathVariable Long studentId, @PathVariable Long courseId) {
        return enrollmentService.isEnrolled(studentId, courseId);
     }
 

@@ -21,9 +21,9 @@ public class TableRepository {
     public void createCoursesTable() {
         var sql = ("""
                 CREATE TABLE IF NOT EXISTS courses(
-                   id SERIAL  PRIMARY KEY NOT NULL,
+                   id BIGSERIAL  PRIMARY KEY NOT NULL,
                    name VARCHAR(100) NOT NULL,
-                    teacher_id INT REFERENCES teachers(id)
+                    teacher_id BIGINT REFERENCES teachers(id)
                 );
                 """);
         jdbcTemplate.execute(sql);
@@ -32,7 +32,7 @@ public class TableRepository {
     public void createStudentsTable() {
         var sql = """ 
                 CREATE TABLE IF NOT EXISTS students(
-                    id SERIAL PRIMARY KEY NOT NULL,
+                    id BIGSERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(100) NOT NULL,
                     surname VARCHAR(100) NOT NULL,
                     grade NUMERIC
@@ -44,7 +44,7 @@ public class TableRepository {
     public void createTeachersTable() {
         var sql = ("""
                 CREATE TABLE IF NOT EXISTS teachers(
-                id SERIAL PRIMARY KEY NOT NULL,
+                id BIGSERIAL PRIMARY KEY NOT NULL,
                 name VARCHAR(100) NOT NULL,
                 surname VARCHAR(100) NOT NULL,
                 salary NUMERIC
@@ -56,8 +56,8 @@ public class TableRepository {
     public void createEnroolmentsTable() {
         var sql = ("""
                 CREATE TABLE IF NOT EXISTS enrolments(
-                student_id INT REFERENCES students(id),
-                course_id INT REFERENCES courses(id),
+                student_id BIGINT REFERENCES students(id),
+                course_id BIGINT REFERENCES courses(id),
                 enrollment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
                 """);

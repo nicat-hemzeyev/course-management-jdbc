@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 public class StudentMapper {
     public static final RowMapper<StudentEntity> MAPPER = ((rs, rowNum) ->
             StudentEntity.builder()
-                    .id(rs.getInt("id"))
+                    .id(rs.getLong("id"))
                     .name(rs.getString("name"))
                     .surname(rs.getString("surname"))
                     .grade(rs.getBigDecimal("grade"))

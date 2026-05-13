@@ -27,19 +27,19 @@ public class CourseService {
                 .toList();
     }
 
-    public CourseResponse getCourseById(int id) {
+    public CourseResponse getCourseById(Long id) {
         return courseRepository.findById(id)
                 .map(CourseMapper::mapToDto)
                 .orElseThrow(() -> new RuntimeException("course not found"));
     }
 
-    public void courseUpdate(int id, CourseRequest courseRequest) {
+    public void courseUpdate(Long id, CourseRequest courseRequest) {
         CourseEntity course = CourseMapper.mapToEntity(courseRequest);
         course.setId(id);
         courseRepository.update(course);
     }
 
-    public void deleteCourseById(int id) {
+    public void deleteCourseById(Long id) {
         courseRepository.deleteById(id);
     }
 }

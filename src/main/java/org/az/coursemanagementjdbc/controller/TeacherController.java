@@ -25,17 +25,17 @@ public class TeacherController {
     }
 
     @GetMapping("/{id}")
-    public TeacherResponse getTeacherById(@PathVariable int id) {
+    public TeacherResponse getTeacherById(@PathVariable Long id) {
         return teacherService.getTeacherById(id);
     }
 
     @PutMapping("/{id}")
-    public void updateTeacher(@PathVariable int id, @RequestBody TeacherRequest teacherRequest) {
+    public void updateTeacher(@PathVariable Long id, @RequestBody TeacherRequest teacherRequest) {
         teacherService.teacherUpdate(id, teacherRequest);
     }
 
     @DeleteMapping("/{id}")
-    public void getTeacherDelete(@PathVariable int id) {
+    public void getTeacherDelete(@PathVariable Long id) {
         teacherService.deleteTeacherById(id);
     }
 }

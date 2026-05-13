@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class EnrollmentEntity {
-    private int studentId;
-    private int courseId;
+    private Long studentId;
+    private Long courseId;
     private LocalDateTime enrollmentDate=LocalDateTime.now();
 
 }

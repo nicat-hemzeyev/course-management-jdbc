@@ -8,9 +8,9 @@ import org.springframework.jdbc.core.RowMapper;
 public class CourseMapper {
     public static final RowMapper<CourseEntity> MAPPER = ((rs, rowNum) ->
             CourseEntity.builder()
-                    .id(rs.getInt("id"))
+                    .id(rs.getLong("id"))
                     .name(rs.getString("name"))
-                    .teacherId(rs.getInt("teacher_id"))
+                    .teacherId(rs.getLong("teacher_id"))
                     .build());
 
     public static CourseEntity mapToEntity(CourseRequest courseRequest) {

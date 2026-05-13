@@ -27,19 +27,19 @@ public class StudentService {
                 .toList();
     }
 
-    public StudentResponse getStudentById(int id) {
+    public StudentResponse getStudentById(Long id) {
         return studentRepository.findById(id)
                 .map(StudentMapper::mapToDto)
                 .orElseThrow(() -> new RuntimeException("Student not found"));
     }
 
-    public void studentUpdate(int id, StudentRequest studentRequest) {
+    public void studentUpdate(Long id, StudentRequest studentRequest) {
         StudentEntity studentEntity = StudentMapper.mapToEntity(studentRequest);
         studentEntity.setId(id);
         studentRepository.update(studentEntity);
     }
 
-    public void deleteStudentById(int id) {
+    public void deleteStudentById(Long id) {
         studentRepository.deleteById(id);
 
     }

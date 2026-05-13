@@ -27,7 +27,7 @@ public class TeacherRepository {
         });
     }
 
-    public Optional<TeacherEntity> findById(int id) {
+    public Optional<TeacherEntity> findById(Long id) {
         String sql = "SELECT*FROM teachers WHERE id=?";
         try {
             TeacherEntity teacher = jdbcTemplate.queryForObject(sql, MAPPER, id);
@@ -51,7 +51,7 @@ public class TeacherRepository {
                 teacher.getId());
     }
 
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         String sql = "DELETE FROM teachers WHERE id=?";
         jdbcTemplate.update(sql, id);
 

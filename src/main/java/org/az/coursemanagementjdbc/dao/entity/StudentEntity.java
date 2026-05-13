@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class StudentEntity {
-    private int id;
+    private Long id;
     private String name;
     private String surname;
     private BigDecimal grade;
